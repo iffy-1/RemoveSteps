@@ -16,6 +16,8 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 import java.util.Arrays;
 
+import static net.runelite.api.ObjectID.STEPS_29778;
+
 @Slf4j
 @PluginDescriptor(
 	name = "Remove Steps"
@@ -51,13 +53,11 @@ public class RemoveStepsPlugin extends Plugin
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event){
 		System.out.println("CALLLED THIS FUNCTION!!!!!!!!!!!");
-		//client.setMenuEntries(new MenuEntry[]{});
 		MenuEntry[] newEntries = Arrays.stream(client.getMenuEntries())
-				.filter(menuEntry -> !(menuEntry.getTarget().contains("Steps")))// && menuEntry.getOption().equals("[leave??]")))
+				.filter(menuEntry -> !(menuEntry.getTarget().contains("Steps")))
 				.toArray(MenuEntry[]::new);
 		client.setMenuEntries(newEntries);
 		Arrays.stream(client.getMenuEntries()).forEach(e-> System.out.println(e.toString()));
-		//client.setMenuEntry(MenuEntry[]"Get your pots back!");
 	}
 
 	@Provides
