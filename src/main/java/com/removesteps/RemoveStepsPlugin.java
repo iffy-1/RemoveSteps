@@ -47,11 +47,12 @@ public class RemoveStepsPlugin extends Plugin
 	{
 		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
 		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
+			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "StepRemover says " + config.greeting(), null);
 		}
 	}
 	@Subscribe
 	public void onMenuEntryAdded(MenuEntryAdded event){
+		//debug line in case I need to add future things
 		System.out.println("CALLLED THIS FUNCTION!!!!!!!!!!!");
 		MenuEntry[] newEntries = Arrays.stream(client.getMenuEntries())
 				.filter(menuEntry -> !(menuEntry.getTarget().contains("Steps")))
